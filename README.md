@@ -3,6 +3,8 @@
 A small AI help desk that answers questions **only** from the three fictional BrightPath Learn documents.
 Built with **Cloudflare Workers** and **Workers AI** (free tier, no paid provider).
 
+**Live demo:** https://brightpath-helpdesk.arbelaez-juan.workers.dev
+
 ## What it does
 
 | Requirement | How it is met |
