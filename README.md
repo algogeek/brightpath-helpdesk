@@ -85,4 +85,4 @@ Next step: a small evaluation set (questions + expected document) run on every c
 
 ## Tools used
 
-<!-- Be specific and honest, e.g.: Claude (Anthropic) helped draft the code and README; I reviewed, ran and tested it. -->
+I used Claude (Anthropic) to help draft the code and README. From there, I handled the Cloudflare setup, ran the Worker locally, verified the three tests against the documents, and did a thorough code review.
