@@ -1,0 +1,58 @@
+{
+  "runAt": "2026-11-12T15:58:08.610Z",
+  "baseUrl": "http://localhost:8787",
+  "results": [
+    {
+      "name": "1. Question the documents answer",
+      "body": {
+        "question": "How do I save my progress after a lesson?"
+      },
+      "expect": "found = true, source = Document 1",
+      "status": 200,
+      "ms": 755,
+      "response": {
+        "ok": true,
+        "model": "@cf/meta/llama-3.1-8b-instruct-fast",
+        "found": true,
+        "answer": "To save your progress, select Mark complete after finishing a lesson.",
+        "sources": [
+          {
+            "id": "DOC1",
+            "title": "Document 1 — Getting started"
+          }
+        ]
+      }
+    },
+    {
+      "name": "2. Question the documents do NOT answer",
+      "body": {
+        "question": "How much does the Foundations course cost?"
+      },
+      "expect": "found = false, 'not available' message, refer to support",
+      "status": 200,
+      "ms": 457,
+      "response": {
+        "ok": true,
+        "model": "@cf/meta/llama-3.1-8b-instruct-fast",
+        "found": false,
+        "answer": "Sorry, that information is not available in the supplied documents. Please contact support at support@brightpath.example (Monday to Friday, 09:00–17:00 UTC).",
+        "sources": []
+      }
+    },
+    {
+      "name": "3. Model / API failure (simulated)",
+      "body": {
+        "question": "When is the group coaching session?",
+        "simulateFailure": true
+      },
+      "expect": "HTTP 503, clear 'temporarily unavailable' message",
+      "status": 503,
+      "ms": 12,
+      "response": {
+        "ok": false,
+        "error": "The AI assistant is temporarily unavailable. Please try again in a few minutes. If it is urgent, contact support@brightpath.example.",
+        "errorType": "MODEL_UNAVAILABLE"
+      }
+    }
+  ]
+}

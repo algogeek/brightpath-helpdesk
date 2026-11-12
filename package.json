@@ -1,0 +1,16 @@
+{
+  "name": "brightpath-helpdesk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Small AI help desk that answers only from three fictional BrightPath documents (Cloudflare Workers + Workers AI).",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test:cases": "node scripts/run-tests.mjs",
+    "test:unit": "node scripts/unit-test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.161.0"
+  }
+}

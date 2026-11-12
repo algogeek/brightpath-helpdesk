@@ -1,0 +1,23 @@
+// wrangler.jsonc — Cloudflare configuration for this Worker.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "brightpath-helpdesk",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-12",
+
+  // Workers AI binding: gives the code env.AI.
+  // Authentication comes from your Cloudflare login (npx wrangler login),
+  // so there is no API key anywhere in the project.
+  "ai": {
+    "binding": "AI"
+  },
+
+  // Plain (non-secret) settings, readable in code as env.AI_MODEL, etc.
+  "vars": {
+    "AI_MODEL": "@cf/meta/llama-3.1-8b-instruct-fast",
+    // Set to "true" to make every request fail (failure test for the whole Worker).
+    "SIMULATE_AI_FAILURE": "false"
+  },
+
+  "observability": { "enabled": true }
+}
